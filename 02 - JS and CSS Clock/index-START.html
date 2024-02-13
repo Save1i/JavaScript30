@@ -16,7 +16,8 @@
 
     <style>
       html {
-        background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+        background: #3b446a;
+        background: linear-gradient(180deg, #3b446a 60%, #161a29 90%);
         background-size: cover;
         font-family: "helvetica neue";
         text-align: center;
@@ -34,20 +35,57 @@
       .clock {
         width: 30rem;
         height: 30rem;
-        border: 20px solid white;
         border-radius: 50%;
-        margin: 50px auto;
+        margin: auto;
         position: relative;
         padding: 2rem;
-        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef, inset 0 0 10px black,
-          0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 100%;
+        background-color: #414c6f;
+        background-image: linear-gradient(165deg, #424c6f 0%, #191e2e 100%);
+        backdrop-filter: blur(19px);
+        box-shadow: 2px -34px 30px 7px #425079;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .clock-face {
         position: relative;
-        width: 100%;
-        height: 100%;
+        width: 90%;
+        height: 90%;
         transform: translateY(-3px); /* account for the height of the clock hands */
+        border-radius: 100%;
+        background-image: radial-gradient(
+          131.47% 131.47% at 55.35% 61.64%,
+          rgb(68, 78, 115) 0%,
+          rgb(27, 31, 48) 65.87368249893188%
+        );
+      }
+
+      .clock-face::before {
+        content: "";
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        border-radius: 50px;
+        background-image: radial-gradient(
+          70.01% 70.01% at 23.33% 10%,
+          rgb(80, 91, 129) 0%,
+          rgb(26, 34, 52) 96.875%
+        );
+        top: 42%;
+        left: 42%;
+      }
+
+      .clock-face::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        background-color: #ac2c6d;
+        top: 48%;
+        left: 48%;
       }
 
       .hand {
@@ -55,8 +93,37 @@
         height: 6px;
         background: black;
         position: absolute;
-        top: 50%;
-        transform-origin: 100% 0%;
+        top: 49%;
+        transform-origin: 100% 50%;
+        transform: rotate(180deg);
+      }
+
+      .second-hand {
+        position: absolute;
+        left: 38%;
+        border-radius: 5px;
+        width: 40px;
+        height: 3px;
+        transform-origin: 80% 50%;
+        background: linear-gradient(270deg, #b61861 0%, #cd498d 100%);
+      }
+
+      .min-hand {
+        position: absolute;
+        left: 34%;
+        border-radius: 5px;
+        width: 42px;
+        height: 3px;
+        background: linear-gradient(270deg, #fafcff 0%, #fcc1de 100%);
+      }
+
+      .hour-hand {
+        position: absolute;
+        left: 39%;
+        border-radius: 5px;
+        width: 30px;
+        height: 4px;
+        background: linear-gradient(270deg, #fafcff 0%, #fcc1de 100%);
       }
     </style>
 
