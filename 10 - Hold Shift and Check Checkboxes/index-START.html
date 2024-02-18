@@ -26,6 +26,10 @@
         border-bottom: 1px solid #f1f1f1;
       }
 
+      input {
+        cursor: pointer;
+      }
+
       .item:last-child {
         border-bottom: 0;
       }
@@ -96,31 +100,28 @@
     </div>
 
     <script>
-      const inputs = document.querySelectorAll(".inbox [type='checkbox']");
-      console.log(inputs);
+      const checkboxes = document.querySelectorAll(".inbox [type='checkbox']");
 
-      let lastInput;
+      let lastCheckBox;
 
       function done(e) {
-        let inBetween = false;
         if (e.shiftKey && this.checked) {
-          inputs.forEach((input) => {
-            console.log(input);
+          let isBetween = false;
 
-            if (input === this || input === lastChecked) {
-              inBetween = !inBetween;
-              console.log("e boyys");
+          checkboxes.forEach((checkbox) => {
+            if (checkbox === this || checkbox === lastCheckBox) {
+              isBetween = !isBetween;
             }
-
-            if (inBetween) {
-              input.checked = true;
+            if (isBetween) {
+              checkbox.checked = true;
             }
           });
         }
-        lastChecked = this;
+        lastCheckBox = this;
+        console.log(lastCheckBox);
       }
 
-      inputs.forEach((input) => input.addEventListener("click", done));
+      checkboxes.forEach((checkbox) => checkbox.addEventListener("click", done));
     </script>
   </body>
 </html>
